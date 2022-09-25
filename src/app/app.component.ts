@@ -14,8 +14,9 @@ export class AppComponent {
 
   ngOnInit() {
 
+    // @ts-ignore
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.email, Validators.required, MyValidators.restrictedEmails]),
+      email: new FormControl('', [Validators.email, Validators.required, MyValidators.restrictedEmails],[MyValidators.uniqEmail]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       adress: new FormGroup({
         country: new FormControl('ru'),
